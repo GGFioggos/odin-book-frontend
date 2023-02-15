@@ -8,13 +8,6 @@ const LogIn = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    if (user) {
-        console.log(user);
-        console.log('logged in');
-    } else {
-        console.log('not logged in');
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -32,7 +25,7 @@ const LogIn = (props) => {
         const data = await response.json();
         console.log(data);
         // if (data.user) {
-        //     localStorage.setItem('user', JSON.stringify(data.user));
+        //     localStorage.setItem('token', data.token);
         // }
     };
 
