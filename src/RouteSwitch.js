@@ -1,23 +1,26 @@
-import { Route, HashRouter, Routes } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 // import App from './App';
 import LogIn from './routes/LogIn';
+import User from './routes/User';
+import App from './routes/App';
 
 const RouteSwitch = () => {
     const [user, setUser] = useState(null);
 
     return (
-        <HashRouter basename="/">
+        <BrowserRouter>
             <Routes>
                 <Route
-                    path="/"
+                    path="/log-in"
                     element={<LogIn user={user} setUser={setUser} />}
                 />
+                <Route path="/user" element={<User />} />
                 <Route path="/home" /*element={<App />} */ />
                 <Route path="/profile" /* element={<Profile />} */ />
-                <Route path="/user" /* element={<User />} */ />
+                <Route path="/" element={<App />} />
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
     );
 };
 
