@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { UserContext } from '../UserContext';
 // import components
 
 const LogIn = (props) => {
-    const user = props.user;
-    const setUser = props.setUser;
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [redirect, setRedirect] = useState(false);
+    const { setUserInfo } = useContext(UserContext);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -14,21 +15,26 @@ const LogIn = (props) => {
         const response = await fetch('http://localhost:5000/api/auth/log-in', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: email,
-                password: password,
+                email,
+                password,
             }),
+            credentials: 'include',
         });
-        const data = await response.json();
-        console.log(data);
-        // if (data.user) {
-        //     localStorage.setItem('token', data.token);
-        // }
+        if (response.ok) {
+            const data = await response.json();
+            setUserInfo(data.user);
+            setRedirect(true);
+        } else {
+            alert('Wrong credentials');
+        }
     };
 
+    if (redirect) {
+        return <Navigate to={'/'} />;
+    }
     return (
         <div className="body">
             <form onSubmit={handleSubmit} action="" method="POST">
