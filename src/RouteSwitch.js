@@ -4,23 +4,22 @@ import React, { useState, useEffect } from 'react';
 import LogIn from './routes/LogIn';
 import User from './routes/User';
 import App from './routes/App';
+import Profile from './routes/Profile';
+import { UserContextProvider } from './UserContext';
 
 const RouteSwitch = () => {
-    const [user, setUser] = useState(null);
-
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route
-                    path="/log-in"
-                    element={<LogIn user={user} setUser={setUser} />}
-                />
-                <Route path="/user" element={<User />} />
-                <Route path="/home" /*element={<App />} */ />
-                <Route path="/profile" /* element={<Profile />} */ />
-                <Route path="/" element={<App />} />
-            </Routes>
-        </BrowserRouter>
+        <UserContextProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<App />} />
+                    <Route path="/log-in" element={<LogIn />} />
+                    <Route path="/user" element={<User />} />
+                    <Route path="/home" element={<App />} />
+                    <Route path="/profile" element={<Profile />} />
+                </Routes>
+            </BrowserRouter>
+        </UserContextProvider>
     );
 };
 
