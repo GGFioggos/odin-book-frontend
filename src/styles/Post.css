@@ -1,0 +1,43 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    border: 1px solid red;
+    width: 600px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.authorInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+.profilePicture {
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+
+.firstName {
+    margin-left: 10px;
+}
+
+.content {
+    font-size: 1.2rem;   
+    margin-inline: 5px;
+}
+
+.impressions {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 15px;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+    margin-inline: 15px;
+}
