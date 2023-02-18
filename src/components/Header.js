@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 import { UserContext } from '../UserContext';
 import { useContext, useEffect } from 'react';
@@ -48,14 +48,14 @@ const Header = () => {
                     </>
                 )}
                 {userInfo && (
-                    <div>
+                    <>
                         <li>
                             <Link to={'/log-in'}>Create Post</Link>
                         </li>
                         <li>
                             <a onClick={logOut}>Log out</a>
                         </li>
-                    </div>
+                    </>
                 )}
             </ul>
         </div>
