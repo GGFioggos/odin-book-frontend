@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import Feed from '../components/Feed';
 import Header from '../components/Header';
 import { UserContext } from '../UserContext';
 
@@ -10,9 +11,9 @@ function App() {
             <Header />
             <div>
                 {userInfo == null && (
-                    <div>Hello! Please log in or register to gain access</div>
+                    <h2>Hello! Please log in or register to gain access</h2>
                 )}
-                {userInfo != null && <div>Hello {userInfo.lastName}</div>}
+                {userInfo != null && <Feed />}
             </div>
         </div>
     );
