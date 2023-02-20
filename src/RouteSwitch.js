@@ -1,6 +1,5 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-// import App from './App';
 import LogIn from './routes/LogIn';
 import User from './routes/User';
 import App from './routes/App';
