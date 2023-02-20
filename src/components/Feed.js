@@ -18,7 +18,6 @@ const Feed = () => {
 
     return (
         <div className="feed">
-            <h1>Feed</h1>
             {posts == null && <div>No posts to show. Come back later!</div>}
             {posts != null && (
                 <div className="posts">

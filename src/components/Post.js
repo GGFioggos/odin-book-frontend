@@ -16,11 +16,11 @@ const Post = (props) => {
                 <div className="likes">{likes.length} Likes</div>
                 <div className="commentsCount">{comments.length} Comments</div>
             </div>
-            <div className="actions">
-                <div>Like</div>
-                <div>Comment</div>
-            </div>
-
+            <ul className="actions">
+                <li>Like</li>
+                <li>Comment</li>
+                <li>Share</li>
+            </ul>
             <div className="comments">
                 {comments.map((comment, i) => {
                     return <div key={i}>{comment.content}</div>;
