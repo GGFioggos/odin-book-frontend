@@ -1,5 +1,5 @@
 import Divider from './Divider';
-
+import Comment from './Comment';
 const Post = (props) => {
     const { author, content, comments, likes } = props.post;
 
@@ -12,7 +12,7 @@ const Post = (props) => {
                     alt="profile"
                 ></img>
                 <div>
-                    <div className="firstName">{author.firstName}</div>
+                    <div className="authorName">{author.fullName}</div>
                     <div className="date">{props.post.time_diff}</div>
                 </div>
             </div>
@@ -35,7 +35,7 @@ const Post = (props) => {
             {comments.length > 0 && <Divider />}
             <div className="comments">
                 {comments.map((comment, i) => {
-                    return <div key={i}>{comment.content}</div>;
+                    return <Comment key={i} comment={comment}></Comment>;
                 })}{' '}
             </div>
         </div>
