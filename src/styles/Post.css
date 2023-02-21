@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     width: 600px;
-    background-color: #3E4042;
+    background-color: #252426;
     border-radius: 10px;
 }
 
@@ -32,7 +32,7 @@
     border-radius: 20px;
 }
 
-.firstName {
+.authorName {
     font-size: 1.2rem;
     margin-left: 10px;
     font-weight: 800;
@@ -56,24 +56,27 @@
     justify-content: space-between;
     margin-top: 20px;
     margin-inline: 10px;
+    margin-bottom: 5px;
 }
 
 .actions {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 0;
-    margin-block: 5px;
-    font-size: 1.25rem;
-}
-
-.actions li {
-    margin: auto;
-}
-
-ul {
+    font-size: 1.15rem;
     padding-inline-start: 0px;
 }
 
-li {
+.actions li {
+    cursor: pointer;
+    border-radius: 5px;
+    padding-block: 7px;
     list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.actions li:hover {
+    background-color: #858687;
 }
