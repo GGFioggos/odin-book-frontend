@@ -38,6 +38,11 @@
     font-weight: 800;
 }
 
+.date {
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
 .content {
     font-size: 1.2rem;   
     padding-inline: 10px;
@@ -46,6 +51,7 @@
 }
 
 .impressions {
+    font-size: 0.9;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -61,7 +67,7 @@
 }
 
 .actions li {
-    width: 100%;
+    margin: auto;
 }
 
 ul {
