@@ -1,5 +1,4 @@
 .comment .top {
-
     display: flex;
 }
 
@@ -26,6 +25,5 @@
     padding-block: 4px;
     margin-inline: 10px;
     border-radius: 15px;
-    
     background-color: #3a3b3c;
 }
