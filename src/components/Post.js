@@ -8,7 +8,9 @@ const Post = (props) => {
 
     const [postLikes, setPostLikes] = useState(likes.length);
     const [liked, setLiked] = useState(false);
+    const [commentsShown, setCommentsShown] = useState(false);
 
+    // Make liked button 'liked' on load
     useEffect(() => {
         if (likes.includes(userInfo._id)) {
             setLiked(true);
@@ -55,7 +57,10 @@ const Post = (props) => {
                 <div className="likes">
                     {postLikes} {postLikes === 1 ? 'Like' : 'Likes'}
                 </div>
-                <div className="commentsCount">
+                <div
+                    className="commentsCount"
+                    onClick={() => setCommentsShown(!commentsShown)}
+                >
                     {comments.length}{' '}
                     {comments.length === 1 ? 'Comment' : 'Comments'}
                 </div>
@@ -73,8 +78,13 @@ const Post = (props) => {
                 <button>Comment</button>
                 <button>Share</button>
             </ul>
-            {comments.length > 0 && <Divider />}
-            <div className="comments">
+            {comments.length > 0 && commentsShown && <Divider />}
+            <div
+                className="comments"
+                style={{
+                    contentVisibility: commentsShown ? 'visible' : 'hidden',
+                }}
+            >
                 {comments.map((comment, i) => {
                     return <Comment key={i} comment={comment}></Comment>;
                 })}{' '}
