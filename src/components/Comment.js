@@ -16,7 +16,7 @@ const Comment = (props) => {
                 </div>
             </div>
             <div className="impressions">
-                <div>{likes.length} Likes</div>
+                <div className="likes">{likes.length} Likes</div>
                 <div className="date">{props.comment.time_diff}</div>
             </div>
         </div>
