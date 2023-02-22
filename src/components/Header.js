@@ -27,7 +27,6 @@ const Header = () => {
             credentials: 'include',
             method: 'POST',
         });
-        window.localStorage.setItem('isLoggedIn', false);
         setUserInfo(null);
     }
 
