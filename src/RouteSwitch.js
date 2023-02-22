@@ -3,6 +3,7 @@ import React from 'react';
 import LogIn from './routes/LogIn';
 import User from './routes/User';
 import App from './routes/App';
+import './styles/App.css';
 import Profile from './routes/Profile';
 import { UserContextProvider } from './UserContext';
 
