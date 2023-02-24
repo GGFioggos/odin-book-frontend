@@ -1,0 +1,61 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logInForm {
+    font-size: 1rem;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 700px;
+    height: 400px;
+    align-items: center;
+}
+
+form .title {
+    margin-bottom: 40px;
+    font-size: 1.4rem;
+}
+
+.email, .password {
+    font-size: 1rem;
+    width: 80%;
+    padding-inline: 10px;
+    padding-block: 8px;
+    border-radius: 5px;
+    border: 1px solid rgb(178, 178, 178);
+    margin-top: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.email:hover , .password:hover {
+    border: 1px solid rgb(100, 100, 100);
+}
+
+.email:focus , .password:focus {
+    outline: none;
+}
+
+.submit {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: rgb(74, 220, 74);
+    transition: 0.2s ease;
+    cursor: pointer;
+    padding-block: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    width: 83%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.submit:hover {
+    background-color: rgb(63, 167, 63);
+    transition: 0.2s ease;
+}
