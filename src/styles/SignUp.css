@@ -1,4 +1,4 @@
-.log-in {
+.sign-up {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.log-in .logInForm {
+.sign-up .signUpForm {
     font-size: 1rem;
     gap: 10px;
     display: flex;
@@ -17,12 +17,13 @@
     align-items: center;
 }
 
-.log-in form .title {
+.sign-up .title {
+    margin-top: 50px;
     margin-bottom: 40px;
     font-size: 1.4rem;
 }
 
-.log-in input {
+.sign-up form input {
     font-size: 1rem;
     width: 80%;
     padding-inline: 10px;
@@ -30,14 +31,11 @@
     border-radius: 5px;
     border: 1px solid rgb(178, 178, 178);
     margin-top: 5px;
+    outline: none;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.log-in input:hover {
-    border: 1px solid rgb(100, 100, 100);
-}
-
-.log-in .submit {
+.sign-up .submit {
     font-size: 1.2rem;
     font-weight: 600;
     background-color: rgb(74, 220, 74);
@@ -51,7 +49,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.log-in .submit:hover {
+.sign-up .submit:hover{
     background-color: rgb(63, 167, 63);
     transition: 0.2s ease;
 }
