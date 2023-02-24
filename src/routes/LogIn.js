@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import { UserContext } from '../UserContext';
 import '../styles/LogIn.css';
 
-const LogIn = (props) => {
+const LogIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
@@ -46,7 +46,7 @@ const LogIn = (props) => {
     return (
         <div>
             <Header />
-            <div className="body">
+            <div className="log-in">
                 <form
                     onSubmit={handleSubmit}
                     action=""
@@ -55,7 +55,6 @@ const LogIn = (props) => {
                 >
                     <div className="title">Login to Odin-Book</div>
                     <input
-                        id="email"
                         type="email"
                         name="email"
                         className="email"
@@ -64,7 +63,6 @@ const LogIn = (props) => {
                     ></input>
 
                     <input
-                        id="password"
                         name="password"
                         type="password"
                         className="password"
