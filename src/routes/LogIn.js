@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { UserContext } from '../UserContext';
-// import components
+import '../styles/LogIn.css';
 
 const LogIn = (props) => {
     const [email, setEmail] = useState('');
@@ -47,8 +47,13 @@ const LogIn = (props) => {
         <div>
             <Header />
             <div className="body">
-                <form onSubmit={handleSubmit} action="" method="POST">
-                    <label htmlFor="email">Email</label>
+                <form
+                    onSubmit={handleSubmit}
+                    action=""
+                    method="POST"
+                    className="logInForm"
+                >
+                    <div className="title">Login to Odin-Book</div>
                     <input
                         id="email"
                         type="email"
@@ -57,7 +62,7 @@ const LogIn = (props) => {
                         placeholder="Email"
                         onChange={(e) => setEmail(e.target.value)}
                     ></input>
-                    <label htmlFor="password">Password</label>
+
                     <input
                         id="password"
                         name="password"
