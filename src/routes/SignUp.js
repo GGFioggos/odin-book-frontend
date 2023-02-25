@@ -10,6 +10,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [profilePictureUrl, setProfilePictureUrl] = useState('');
+    const [errors, setErrors] = useState([]);
     const [redirect, setRedirect] = useState(false);
 
     async function handleSubmit(e) {
@@ -31,12 +32,12 @@ const SignUp = () => {
             credentials: 'include',
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         if (response.ok) {
             alert('User created!');
             setRedirect(true);
         } else {
-            alert('Error');
+            setErrors(data.error);
         }
     }
 
@@ -98,6 +99,13 @@ const SignUp = () => {
                         onChange={(e) => setProfilePictureUrl(e.target.value)}
                     ></input>
                     <button className="submit">Sign Up</button>
+                    <ul className="errors">
+                        {errors.map((err, i) => (
+                            <li key={i} className="error">
+                                {err.msg}
+                            </li>
+                        ))}
+                    </ul>
                 </form>
             </div>
         </div>
