@@ -8,6 +8,7 @@ const LogIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [errors, setErrors] = useState([]);
     const { setUserInfo, userInfo } = useContext(UserContext);
 
     const handleSubmit = async (event) => {
@@ -24,14 +25,15 @@ const LogIn = () => {
             }),
             credentials: 'include',
         });
+        const data = await response.json();
+        console.log(data);
         if (response.ok) {
-            const data = await response.json();
             if (data.user) {
                 setUserInfo(data.user);
                 setRedirect(true);
             }
         } else {
-            alert('Wrong credentials');
+            setErrors([data.error]);
         }
     };
 
@@ -70,6 +72,13 @@ const LogIn = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     ></input>
                     <button className="submit">Log In</button>
+                    <ul className="errors">
+                        {errors.map((err, i) => (
+                            <li key={i} className="error">
+                                {err}
+                            </li>
+                        ))}
+                    </ul>
                 </form>
             </div>
         </div>
