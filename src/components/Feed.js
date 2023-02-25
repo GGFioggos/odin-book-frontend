@@ -18,7 +18,9 @@ const Feed = () => {
 
     return (
         <div className="feed">
-            {posts == null && <div>No posts for now. Come back later!</div>}
+            {(posts == null || posts?.length === 0) && (
+                <div>No posts for now. Come back later!</div>
+            )}
             {posts != null && (
                 <div className="posts">
                     {posts.map((post, i) => (
