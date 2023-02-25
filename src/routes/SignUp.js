@@ -25,10 +25,13 @@ const SignUp = () => {
                 lastName,
                 email,
                 password,
+                passwordConfirm,
                 profilePictureUrl,
             }),
             credentials: 'include',
         });
+        const data = await response.json();
+        console.log(data);
         if (response.ok) {
             alert('User created!');
             setRedirect(true);
