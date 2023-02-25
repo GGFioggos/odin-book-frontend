@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import '../styles/SignUp.css';
 
@@ -8,8 +9,37 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
+    const [profilePictureUrl, setProfilePictureUrl] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
-    function handleSubmit() {}
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const response = await fetch('http://localhost:5000/api/auth/sign-up', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                password,
+                profilePictureUrl,
+            }),
+            credentials: 'include',
+        });
+        if (response.ok) {
+            alert('User created!');
+            setRedirect(true);
+        } else {
+            alert('Error');
+        }
+    }
+
+    if (redirect) {
+        return <Navigate to={'/'} />;
+    }
 
     return (
         <div>
@@ -56,6 +86,13 @@ const SignUp = () => {
                         className="confirmPassword"
                         placeholder="Confirm password"
                         onChange={(e) => setPasswordConfirm(e.target.value)}
+                    ></input>
+                    <input
+                        type="url"
+                        name="profilePictureUrl"
+                        className="profilePictureUrl"
+                        placeholder="Profile Picture (URL)"
+                        onChange={(e) => setProfilePictureUrl(e.target.value)}
                     ></input>
                     <button className="submit">Sign Up</button>
                 </form>
