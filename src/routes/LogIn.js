@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { UserContext } from '../UserContext';
 import '../styles/LogIn.css';
+import FormErrors from '../components/FormErrors';
 
 const LogIn = () => {
     const [email, setEmail] = useState('');
@@ -26,7 +27,6 @@ const LogIn = () => {
             credentials: 'include',
         });
         const data = await response.json();
-        console.log(data);
         if (response.ok) {
             if (data.user) {
                 setUserInfo(data.user);
@@ -62,6 +62,7 @@ const LogIn = () => {
                         className="email"
                         placeholder="Email"
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     ></input>
 
                     <input
@@ -70,15 +71,10 @@ const LogIn = () => {
                         className="password"
                         placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     ></input>
                     <button className="submit">Log In</button>
-                    <ul className="errors">
-                        {errors.map((err, i) => (
-                            <li key={i} className="error">
-                                {err}
-                            </li>
-                        ))}
-                    </ul>
+                    <FormErrors errors={errors} />
                 </form>
             </div>
         </div>

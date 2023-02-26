@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import FormErrors from '../components/FormErrors';
 import Header from '../components/Header';
 import '../styles/SignUp.css';
 
@@ -32,7 +33,6 @@ const SignUp = () => {
             credentials: 'include',
         });
         const data = await response.json();
-        // console.log(data);
         if (response.ok) {
             alert('User created!');
             setRedirect(true);
@@ -99,13 +99,7 @@ const SignUp = () => {
                         onChange={(e) => setProfilePictureUrl(e.target.value)}
                     ></input>
                     <button className="submit">Sign Up</button>
-                    <ul className="errors">
-                        {errors.map((err, i) => (
-                            <li key={i} className="error">
-                                {err.msg}
-                            </li>
-                        ))}
-                    </ul>
+                    {errors !== null && <FormErrors errors={errors} />}
                 </form>
             </div>
         </div>
