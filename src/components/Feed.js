@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Post from './Post';
 import '../styles/Post.css';
+import CreatePost from './CreatePost';
 
 const Feed = () => {
     const [posts, setPosts] = useState(null);
@@ -18,6 +19,7 @@ const Feed = () => {
 
     return (
         <div className="feed">
+            <CreatePost />
             {(posts == null || posts?.length === 0) && (
                 <div>No posts for now. Come back later!</div>
             )}
