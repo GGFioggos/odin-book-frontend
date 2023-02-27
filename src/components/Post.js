@@ -109,7 +109,14 @@ const Post = (props) => {
                     return <Comment key={i} comment={comment}></Comment>;
                 })}{' '}
             </div>
-            <FaTrashAlt className="trashIcon" onClick={handleDelete} />
+            <FaTrashAlt
+                className="trashIcon"
+                onClick={handleDelete}
+                style={{
+                    visibility:
+                        userInfo._id === author._id ? 'visible' : 'hidden',
+                }}
+            />
         </div>
     );
 };
