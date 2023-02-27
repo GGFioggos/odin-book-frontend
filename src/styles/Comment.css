@@ -1,24 +1,36 @@
-.comment .top {
+.comment {
+    margin-bottom: 17px;
+    position: relative;
+}
+
+.likeComment {
+    color: rgb(207, 210, 212);
+    font-size: 0.9rem;
+    position: absolute;
+    left: 70px;
+}
+
+.comment {
     display: flex;
 }
 
-.comment .top .profilePicture {
+.comment .profilePicture {
     height: 35px;
     width: 35px;
     margin-left: 15px;
     margin-top: 10px;
 }
 
-.comment .top .authorName {
+.comment .authorName {
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-.comment .top .content {
+.comment .content {
     font-size: 1rem;
 }
 
-.comment .top .commentInfo {
+.comment .commentInfo {
     margin-top: 5px;
     padding-left: 5px;
     padding-right: 10px;
@@ -26,4 +38,31 @@
     margin-inline: 10px;
     border-radius: 15px;
     background-color: #3a3b3c;
+}
+
+.likeComment {
+    position: absolute;
+    bottom: -17px;
+}
+
+.commentInfo .impressions {
+    font-size: 1rem;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+
+.commentInfo .impressions .likes {
+    font-size: 0.9rem;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+.commentInfo .impressions .date {
+    position: absolute;
+    top: 0px;
+    right: -15px;
 }
