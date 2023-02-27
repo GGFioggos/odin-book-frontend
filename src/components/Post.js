@@ -2,8 +2,11 @@ import Divider from './Divider';
 import Comment from './Comment';
 import { UserContext } from '../UserContext';
 import { useContext, useEffect, useState } from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
+
 const Post = (props) => {
     const { author, content, comments, likes } = props.post;
+    const { setTotalPosts } = props;
     const { userInfo } = useContext(UserContext);
 
     const [postLikes, setPostLikes] = useState(likes.length);
@@ -35,6 +38,23 @@ const Post = (props) => {
         ).then((response) => {
             response.json().then((data) => {
                 console.log(data);
+            });
+        });
+    }
+
+    function handleDelete() {
+        fetch(`http://localhost:5000/api/post/${props.post._id}/delete`, {
+            method: 'DELETE',
+            credentials: 'include',
+        }).then((response) => {
+            response.json().then((data) => {
+                if (response.ok) {
+                    setTotalPosts((prevState) => {
+                        return prevState - 1;
+                    });
+                } else {
+                    alert('Error deleting post');
+                }
             });
         });
     }
@@ -89,6 +109,7 @@ const Post = (props) => {
                     return <Comment key={i} comment={comment}></Comment>;
                 })}{' '}
             </div>
+            <FaTrashAlt className="trashIcon" onClick={handleDelete} />
         </div>
     );
 };

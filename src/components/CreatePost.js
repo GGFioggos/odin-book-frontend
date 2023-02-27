@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { UserContext } from '../UserContext';
 import React, { useState, useContext } from 'react';
 import '../styles/CreatePost.css';
 
-const CreatePost = () => {
+const CreatePost = (props) => {
+    const { setTotalPosts } = props;
+
     const { userInfo } = useContext(UserContext);
     const [postContent, setPostContent] = useState('');
 
@@ -25,6 +28,9 @@ const CreatePost = () => {
         });
         const data = await response.json();
         console.log(data);
+        setTotalPosts((prevState) => {
+            return prevState + 1;
+        });
     }
 
     return (
