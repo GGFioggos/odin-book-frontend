@@ -47,7 +47,7 @@
 }
 
 .content {
-    font-size: 1.2rem;   
+    font-size: 1.2rem;
     padding-inline: 10px;
     flex-wrap: wrap;
     width: 100%;
@@ -91,10 +91,11 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .actions button:hover {
-    background-color: #858687;
+    background-color: #85868733;
 }
 
 .trashIcon {
@@ -105,4 +106,26 @@
     height: 18px;
     width: 18px;
     padding: 5px;
+}
+
+.likeIcon {
+    height: 20px;
+    width: 20px;
+}
+
+.impressions .likes {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.actionsIcon {
+    justify-self: center;
+    height: 22px;
+    width: 23px;
+    fill: none;
+    stroke: #9f9393;
+    stroke-width: 30px;
+    stroke-linejoin: round;
+    margin-right: 10px;
 }
