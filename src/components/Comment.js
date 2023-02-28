@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../UserContext';
 import '../styles/Comment.css';
+import thumbsUp from '../assets/thumbsup.png';
 
 const Comment = (props) => {
     const { author, content, likes } = props.comment;
@@ -53,10 +54,11 @@ const Comment = (props) => {
                 <div className="authorName">{author.fullName}</div>
                 <div className="content">{content}</div>
                 <div className="impressions">
-                    <div className="likes">
-                        {commentLikes} {commentLikes === 1 ? 'Like' : 'Likes'}
-                    </div>
                     <div className="date">{props.comment.time_diff}</div>
+                    <div className="likes">
+                        <img className="likeIcon" src={thumbsUp}></img>
+                        <div className="numberOfLikes">{commentLikes} </div>
+                    </div>
                 </div>
             </div>
             <button

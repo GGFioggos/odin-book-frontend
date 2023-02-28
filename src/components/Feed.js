@@ -8,7 +8,6 @@ const Feed = () => {
     const [totalPosts, setTotalPosts] = useState(null);
 
     useEffect(() => {
-        console.log('tsitsi');
         fetch('http://localhost:5000/api/user/feed', {
             method: 'GET',
             credentials: 'include',

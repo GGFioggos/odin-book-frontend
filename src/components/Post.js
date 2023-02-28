@@ -2,8 +2,14 @@ import Divider from './Divider';
 import Comment from './Comment';
 import { UserContext } from '../UserContext';
 import { useContext, useEffect, useState } from 'react';
-import { FaTrashAlt } from 'react-icons/fa';
+import {
+    FaThumbsUp,
+    FaTrashAlt,
+    FaRegCommentAlt,
+    FaShare,
+} from 'react-icons/fa';
 import CreateComment from './CreateComment';
+import thumbsUp from '../assets/thumbsup.png';
 
 const Post = (props) => {
     const { author, content, comments, likes } = props.post;
@@ -80,7 +86,8 @@ const Post = (props) => {
             <div className="content">{content}</div>
             <div className="impressions">
                 <div className="likes">
-                    {postLikes} {postLikes === 1 ? 'Like' : 'Likes'}
+                    <img className="likeIcon" src={thumbsUp}></img>
+                    <div className="numberOfLikes">{postLikes}</div>
                 </div>
                 <div
                     className="commentsCount"
@@ -98,12 +105,17 @@ const Post = (props) => {
                         color: liked ? '#2d86ff' : 'white',
                     }}
                 >
+                    <FaThumbsUp className="actionsIcon" />
                     {liked ? 'Liked' : 'Like'}
                 </button>
                 <button onClick={() => setCommentsShown(!commentsShown)}>
+                    <FaRegCommentAlt className="actionsIcon" />
                     Comment
                 </button>
-                <button>Share</button>
+                <button>
+                    <FaShare className="actionsIcon" />
+                    Share
+                </button>
             </ul>
             {commentsShown && <Divider />}
             <div

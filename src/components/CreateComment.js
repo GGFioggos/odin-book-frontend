@@ -9,7 +9,7 @@ const CreateComment = (props) => {
 
     const { userInfo } = useContext(UserContext);
 
-    const [commentContent, setCommentContent] = useState(null);
+    const [commentContent, setCommentContent] = useState('');
 
     function handleChange(e) {
         e.target.style.height = 'inherit';
@@ -32,7 +32,7 @@ const CreateComment = (props) => {
             }
         );
         const data = await response.json();
-        console.log(data);
+
         setPostComments((prevState) => {
             return [
                 ...prevState,
@@ -44,6 +44,7 @@ const CreateComment = (props) => {
                 },
             ];
         });
+        setCommentContent('');
     }
 
     return (
@@ -54,6 +55,7 @@ const CreateComment = (props) => {
             ></img>
             <textarea
                 className="area"
+                value={commentContent}
                 onChange={handleChange}
                 placeholder="Write a comment..."
                 maxLength={500}
