@@ -105,7 +105,12 @@ const Post = (props) => {
                         color: liked ? '#2d86ff' : 'white',
                     }}
                 >
-                    <FaThumbsUp className="actionsIcon" />
+                    <FaThumbsUp
+                        className="actionsIcon"
+                        style={{
+                            stroke: liked ? '#2d86ff' : '#9f9393',
+                        }}
+                    />
                     {liked ? 'Liked' : 'Like'}
                 </button>
                 <button onClick={() => setCommentsShown(!commentsShown)}>
