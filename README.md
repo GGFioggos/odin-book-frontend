@@ -1,5 +1,7 @@
 Facebook-like Full Stack app.
 
+[API](https://github.com/GGFioggos/odin-book-backend)
+
 Functionalities:
  - User Log in / Sign up using jwt Tokens
  - Post creation and interaction
