@@ -6,6 +6,7 @@ import App from './routes/App';
 import './styles/App.css';
 import Profile from './routes/Profile';
 import { UserContextProvider } from './UserContext';
+import SignUp from './routes/SignUp';
 
 const RouteSwitch = () => {
     return (
@@ -13,9 +14,10 @@ const RouteSwitch = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<App />} />
-                    <Route path="/log-in" element={<LogIn />} />
-                    <Route path="/user" element={<User />} />
                     <Route path="/home" element={<App />} />
+                    <Route path="/log-in" element={<LogIn />} />
+                    <Route path="/sign-up" element={<SignUp />} />
+                    <Route path="/user/:id" element={<User />} />
                     <Route path="/profile" element={<Profile />} />
                 </Routes>
             </BrowserRouter>
