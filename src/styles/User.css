@@ -1,0 +1,27 @@
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+}
+
+.userInfo .friends {
+    margin-left: 10px;
+}
+
+.userInfo .name {
+    font-size: 1.3rem;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.userProfilePicture {
+    width: 200px;
+    aspect-ratio: 1/1;
+    border-radius: 300px;
+}
+

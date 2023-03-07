@@ -1,15 +1,22 @@
+/* eslint-disable jsx-a11y/alt-text */
+import '../styles/User.css';
+
 const UserComponent = (props) => {
     const { user } = props;
-    console.log(user);
     return (
-        <>
-            <img src={user.profilePictureUrl}></img>
+        <div className="user">
             <div className="userInfo">
-                <div className="name">{user.fullName}</div>
-                <div className="friends">{user.friends.length} Friends</div>
+                <img
+                    className="userProfilePicture"
+                    src={user.profilePictureUrl}
+                ></img>
+                <div>
+                    <div className="name">{user.fullName}</div>
+                    <div className="friends">{user.friends.length} Friends</div>
+                </div>
             </div>
             <button>Add friend</button>
-        </>
+        </div>
     );
 };
 
