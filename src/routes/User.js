@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { useParams } from 'react-router-dom';
+import UserComponent from '../components/UserComponent';
 
 const User = () => {
     const { id } = useParams();
@@ -26,7 +27,13 @@ const User = () => {
         <>
             <Header />
             <div className="user">
-                <h1>YOO</h1>
+                {user !== null && (
+                    <>
+                        <UserComponent user={user} />
+                    </>
+                )}
+
+                {user === null && <div>User not found</div>}
             </div>
         </>
     );
