@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { useParams } from 'react-router-dom';
 import UserComponent from '../components/UserComponent';
+import '../styles/User.css';
 
 const User = () => {
     const { id } = useParams();
