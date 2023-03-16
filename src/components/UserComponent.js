@@ -12,10 +12,13 @@ const UserComponent = (props) => {
                 ></img>
                 <div>
                     <div className="name">{user.fullName}</div>
-                    <div className="friends">{user.friends.length} Friends</div>
+                    <div className="friends">
+                        {user.friends.length}{' '}
+                        {user.friends.length === 1 ? 'Friend' : 'Friends'}
+                    </div>
+                    <button className="addFriend">Add friend</button>
                 </div>
             </div>
-            <button>Add friend</button>
         </div>
     );
 };

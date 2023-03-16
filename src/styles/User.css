@@ -2,20 +2,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    background-color: #252426;
 }
 
 .userInfo {
+    margin-top: 10px;
     display: flex;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 .userInfo .friends {
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .userInfo .name {
     font-size: 1.3rem;
-    margin-left: 10px;
+    margin-left: 20px;
     font-weight: bold;
 }
 
@@ -25,3 +29,13 @@
     border-radius: 300px;
 }
 
+.addFriend {
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+    padding-block: 4px;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 85%;
+}
