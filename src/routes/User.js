@@ -27,15 +27,14 @@ const User = () => {
     return (
         <>
             <Header />
-            <div className="user">
-                {user !== null && (
-                    <>
-                        <UserComponent user={user} />
-                    </>
-                )}
 
-                {user === null && <div>User not found</div>}
-            </div>
+            {user !== null && (
+                <>
+                    <UserComponent user={user} />
+                </>
+            )}
+
+            {user === null && <div>User not found</div>}
         </>
     );
 };
