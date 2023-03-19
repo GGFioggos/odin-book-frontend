@@ -49,7 +49,7 @@ const Header = () => {
                 {userInfo && (
                     <>
                         <li>
-                            <Link to={'/log-in'}>Create Post</Link>
+                            <Link to={userInfo.url}>Profile</Link>
                         </li>
                         <li>
                             <a onClick={logOut}>Log out</a>
