@@ -46,12 +46,16 @@ const Comment = (props) => {
 
     return (
         <div className="comment">
-            <img
-                className="profilePicture"
-                src={author.profilePictureUrl}
-            ></img>
+            <a href={author.url}>
+                <img
+                    className="profilePicture"
+                    src={author.profilePictureUrl}
+                ></img>
+            </a>
             <div className="commentInfo">
-                <div className="authorName">{author.fullName}</div>
+                <a href={author.url}>
+                    <div className="authorName">{author.fullName}</div>
+                </a>
                 <div className="content">{content}</div>
                 <div className="impressions">
                     <div className="date">{props.comment.time_diff}</div>

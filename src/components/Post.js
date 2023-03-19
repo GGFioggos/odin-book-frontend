@@ -73,13 +73,17 @@ const Post = (props) => {
     return (
         <div className="post">
             <div className="authorInfo">
-                <img
-                    className="profilePicture"
-                    src={author.profilePictureUrl}
-                    alt="profile"
-                ></img>
+                <a href={author.url}>
+                    <img
+                        className="profilePicture"
+                        src={author.profilePictureUrl}
+                        alt="profile"
+                    ></img>
+                </a>
                 <div>
-                    <div className="authorName">{author.fullName}</div>
+                    <a href={author.url}>
+                        <div className="authorName">{author.fullName}</div>
+                    </a>
                     <div className="date">{props.post.time_diff}</div>
                 </div>
             </div>
