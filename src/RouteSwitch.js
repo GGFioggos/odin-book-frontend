@@ -4,7 +4,6 @@ import LogIn from './routes/LogIn';
 import User from './routes/User';
 import App from './routes/App';
 import './styles/App.css';
-import Profile from './routes/Profile';
 import { UserContextProvider } from './UserContext';
 import SignUp from './routes/SignUp';
 
@@ -18,7 +17,6 @@ const RouteSwitch = () => {
                     <Route path="/log-in" element={<LogIn />} />
                     <Route path="/sign-up" element={<SignUp />} />
                     <Route path="/user/:id" element={<User />} />
-                    <Route path="/profile" element={<Profile />} />
                 </Routes>
             </BrowserRouter>
         </UserContextProvider>
