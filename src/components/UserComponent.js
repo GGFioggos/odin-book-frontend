@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState, React, useEffect } from 'react';
+import { useState, React, useEffect, useContext } from 'react';
+import { UserContext } from '../UserContext';
 import '../styles/User.css';
 import Divider from './Divider';
 import Post from './Post';
@@ -9,6 +10,7 @@ const UserComponent = (props) => {
 
     const [posts, setPosts] = useState(null);
     const [totalPosts, setTotalPosts] = useState(null);
+    const { userInfo } = useContext(UserContext);
 
     useEffect(() => {
         fetch(`http://localhost:5000/api/user/${user._id}/posts`, {
@@ -39,7 +41,9 @@ const UserComponent = (props) => {
                         {user.friends.length}{' '}
                         {user.friends.length === 1 ? 'Friend' : 'Friends'}
                     </div>
-                    <button className="addFriend">Add friend</button>
+                    {userInfo._id !== user._id && (
+                        <button className="addFriend">Add friend</button>
+                    )}
                 </div>
             </div>
             <Divider />
