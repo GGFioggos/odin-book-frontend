@@ -41,6 +41,10 @@
     font-weight: 800;
 }
 
+.authorName:hover {
+    text-decoration: 2px underline;
+}
+
 .date {
     font-size: 0.9rem;
     margin-left: 10px;

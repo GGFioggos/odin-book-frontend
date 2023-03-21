@@ -17,7 +17,7 @@
     font-size: 1.5rem;
 }
 
-.header ul {
+#options {
     font-size: 1.1rem;
     display: flex;
     gap: 20px;
@@ -29,7 +29,46 @@ a {
     text-decoration: none;
 }
 
-.options a:hover {
+ul {
+    list-style: none;
+}
+
+#options a:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+li {
+    vertical-align: middle;
+}
+
+.notificationsIcon {
+    height: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 5px 5px ;
+}
+
+.notifications > li {
+    top: 50px;
+    position: absolute;
+    background-color: rgba(81, 79, 79, 0.317);
+    width: 320px;
+    right: 10px;
+}
+
+.notifications:hover > li {
+    display: block;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.notifications > li {
+    
+}
+
+.friendRequests {
+    
 }
