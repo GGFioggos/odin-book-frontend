@@ -1,0 +1,33 @@
+.friendRequest {
+    display: flex;
+    height: 65px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-inline-start: 5px;
+}
+
+.friendRequest .name {
+    font-size: 1rem;
+    width: 40%;
+    margin-left: 15px;
+}
+
+.friendRequest .accept, .friendRequest .decline {
+    padding-block: 10px;
+    padding-inline: 10px;
+    border-radius: 15px;
+    display: table-cell;
+    vertical-align: middle;
+    cursor: pointer;
+    
+}
+
+.friendRequest .accept{
+    background-color: rgba(1, 172, 1, 0.58);
+    margin-right: 8px;
+}
+
+.friendRequest .decline{
+    background-color: rgb(198, 3, 3);
+    margin-right: 5px;
+}
