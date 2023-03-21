@@ -19,7 +19,6 @@ const UserComponent = (props) => {
         }).then((response) => {
             response.json().then((data) => {
                 if (response.ok) {
-                    console.log(data);
                     setPosts(data);
                 } else {
                     alert('Error finding posts');
@@ -27,6 +26,21 @@ const UserComponent = (props) => {
             });
         });
     }, []);
+
+    function sendFriendRequest() {
+        fetch(`http://localhost:5000/api/user/${user._id}/add`, {
+            method: 'POST',
+            credentials: 'include',
+        }).then((response) => {
+            response.json().then((data) => {
+                if (response.ok) {
+                    console.log(data);
+                } else {
+                    alert('Error sending friend request');
+                }
+            });
+        });
+    }
 
     return (
         <div className="user">
@@ -42,7 +56,12 @@ const UserComponent = (props) => {
                         {user.friends.length === 1 ? 'Friend' : 'Friends'}
                     </div>
                     {userInfo._id !== user._id && (
-                        <button className="addFriend">Add friend</button>
+                        <button
+                            className="addFriend"
+                            onClick={sendFriendRequest}
+                        >
+                            Add friend
+                        </button>
                     )}
                 </div>
             </div>
