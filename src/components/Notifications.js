@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import { FaBell } from 'react-icons/fa';
 import Divider from './Divider';
 import FriendRequest from './FriendRequest';
@@ -10,12 +11,31 @@ const Notifications = (props) => {
         setFriendRequests,
     } = props;
 
+    const notificationsRef = useRef(null);
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const handleClickOutside = (event) => {
+        if (
+            notificationsRef.current &&
+            !notificationsRef.current.contains(event.target)
+        ) {
+            setNotificationsShown(false);
+        }
+    };
+
     return (
-        <ul
-            className="notifications"
-            onClick={() => setNotificationsShown(!notificationsShown)}
-        >
-            <FaBell className="notificationsIcon" />
+        <ul className="notifications" ref={notificationsRef}>
+            <FaBell
+                className="notificationsIcon"
+                onClick={() => setNotificationsShown((prevState) => !prevState)}
+            />
             <li
                 style={{
                     display: notificationsShown ? 'block' : 'none',
