@@ -3,13 +3,11 @@ import { Link, Navigate } from 'react-router-dom';
 import '../styles/Header.css';
 import { UserContext } from '../UserContext';
 import { useContext, useEffect, useState } from 'react';
-import { FaBell } from 'react-icons/fa';
-import Divider from './Divider';
-import FriendRequest from './FriendRequest';
-
+import Notifications from './Notifications';
 const Header = () => {
     const { setUserInfo, userInfo } = useContext(UserContext);
     const [friendRequests, setFriendRequests] = useState([]);
+    const [notificationsShown, setNotificationsShown] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:5000/api/user/', {
@@ -55,29 +53,12 @@ const Header = () => {
                 )}
                 {userInfo && (
                     <>
-                        <ul className="notifications">
-                            <FaBell className="notificationsIcon" />
-                            <li>
-                                <div className="friendRequests">
-                                    Friend Requests
-                                </div>
-                                <Divider />
-                                {friendRequests.length === 0 && (
-                                    <div>No new friend requests</div>
-                                )}
-                                {friendRequests.length !== 0 &&
-                                    friendRequests.map((friendRequest, i) => (
-                                        <FriendRequest
-                                            request={friendRequest}
-                                            key={i}
-                                            requestKey={i}
-                                            setFriendRequests={
-                                                setFriendRequests
-                                            }
-                                        ></FriendRequest>
-                                    ))}
-                            </li>
-                        </ul>
+                        <Notifications
+                            notificationsShown={notificationsShown}
+                            setNotificationsShown={setNotificationsShown}
+                            friendRequests={friendRequests}
+                            setFriendRequests={setFriendRequests}
+                        />
                         <li>
                             <Link to={userInfo.url}>Profile</Link>
                         </li>
