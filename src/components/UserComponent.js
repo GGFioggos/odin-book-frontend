@@ -36,7 +36,22 @@ const UserComponent = (props) => {
                 if (response.ok) {
                     console.log(data);
                 } else {
-                    alert('Error sending friend request');
+                    alert(data.message || data.error);
+                }
+            });
+        });
+    }
+
+    function unFriend() {
+        fetch(`http://localhost:5000/api/user/${user._id}/remove`, {
+            method: 'POST',
+            credentials: 'include',
+        }).then((response) => {
+            response.json().then((data) => {
+                if (response.ok) {
+                    console.log(data);
+                } else {
+                    alert(data.message || data.error);
                 }
             });
         });
@@ -55,14 +70,21 @@ const UserComponent = (props) => {
                         {user.friends.length}{' '}
                         {user.friends.length === 1 ? 'Friend' : 'Friends'}
                     </div>
-                    {userInfo._id !== user._id && (
-                        <button
-                            className="addFriend"
-                            onClick={sendFriendRequest}
-                        >
-                            Add friend
-                        </button>
-                    )}
+                    {userInfo._id !== user._id &&
+                        !userInfo.friends.includes(user._id) && (
+                            <button
+                                className="addFriend"
+                                onClick={sendFriendRequest}
+                            >
+                                Add friend
+                            </button>
+                        )}
+                    {userInfo._id !== user._id &&
+                        userInfo.friends.includes(user._id) && (
+                            <button className="addFriend" onClick={unFriend}>
+                                Remove friend
+                            </button>
+                        )}
                 </div>
             </div>
             <Divider />
