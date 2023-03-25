@@ -36,6 +36,7 @@ const Notifications = (props) => {
                 className="notificationsIcon"
                 onClick={() => setNotificationsShown((prevState) => !prevState)}
             />
+            <div className="notificationsNumber">{friendRequests.length}</div>
             <li
                 style={{
                     display: notificationsShown ? 'block' : 'none',
