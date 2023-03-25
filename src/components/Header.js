@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
 import { UserContext } from '../UserContext';
 import { useContext, useEffect, useState } from 'react';
@@ -8,6 +8,8 @@ const Header = () => {
     const { setUserInfo, userInfo } = useContext(UserContext);
     const [friendRequests, setFriendRequests] = useState([]);
     const [notificationsShown, setNotificationsShown] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('http://localhost:5000/api/user/', {
@@ -33,6 +35,7 @@ const Header = () => {
             method: 'POST',
         });
         setUserInfo(null);
+        navigate('/');
     }
 
     return (
