@@ -26,8 +26,10 @@ const CreatePost = (props) => {
             body: JSON.stringify({ content: postContent }),
             credentials: 'include',
         });
-        const data = await response.json();
-        console.log(data);
+        if (!response.ok) {
+            alert('Error creating post');
+        }
+
         setTotalPosts((prevState) => {
             return prevState + 1;
         });
