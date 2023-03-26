@@ -15,8 +15,11 @@ const FriendRequest = (props) => {
             response.json().then((data) => {
                 if (response.ok) {
                     alert('Friend added successfully');
+                    setFriendRequests((current) =>
+                        current.filter((request, i) => i !== key)
+                    );
                 } else {
-                    alert(data);
+                    alert(data.error || data.message);
                 }
             });
         });
@@ -29,7 +32,7 @@ const FriendRequest = (props) => {
         }).then((response) => {
             response.json().then((data) => {
                 if (response.ok) {
-                    console.log('Deleted succesfully');
+                    alert('Friend request declined');
                     setFriendRequests((current) =>
                         current.filter((request, i) => i !== key)
                     );
