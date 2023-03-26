@@ -64,7 +64,9 @@ const Post = (props) => {
                         return prevState - 1;
                     });
                 } else {
-                    alert('Error deleting post');
+                    alert(
+                        `Error deleting post - ${data.error || data.message}`
+                    );
                 }
             });
         });
