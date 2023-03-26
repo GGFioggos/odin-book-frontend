@@ -34,7 +34,7 @@ const UserComponent = (props) => {
         }).then((response) => {
             response.json().then((data) => {
                 if (response.ok) {
-                    console.log(data);
+                    alert('Friend request sent');
                 } else {
                     alert(data.message || data.error);
                 }
