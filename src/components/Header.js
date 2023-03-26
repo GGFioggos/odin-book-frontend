@@ -63,7 +63,14 @@ const Header = () => {
                             setFriendRequests={setFriendRequests}
                         />
                         <li>
-                            <Link to={userInfo.url}>Profile</Link>
+                            <Link
+                                to={userInfo.url}
+                                onClick={() =>
+                                    (window.location.href = userInfo.url)
+                                }
+                            >
+                                Profile
+                            </Link>
                         </li>
                         <li>
                             <a onClick={logOut}>Log out</a>
