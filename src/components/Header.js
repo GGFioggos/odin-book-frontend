@@ -19,6 +19,7 @@ const Header = () => {
             response.json().then((data) => {
                 if (data.error === 'User not authorized') {
                     setUserInfo(null);
+                    navigate('/log-in');
                 }
                 if (data.user) {
                     console.log(data);
