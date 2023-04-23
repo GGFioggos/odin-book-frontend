@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../UserContext';
 import '../styles/Comment.css';
 import thumbsUp from '../assets/thumbsup.png';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const Comment = (props) => {
     const { author, content, likes } = props.comment;
@@ -44,6 +45,10 @@ const Comment = (props) => {
         });
     }
 
+    function handleDelete() {
+        console.log('delete comment');
+    }
+
     return (
         <div className="comment">
             <a href={author.url}>
@@ -74,6 +79,14 @@ const Comment = (props) => {
             >
                 {liked ? 'Liked' : 'Like'}
             </button>
+            <FaTrashAlt
+                className="trashIcon"
+                onClick={handleDelete}
+                style={{
+                    visibility:
+                        userInfo._id === author._id ? 'visible' : 'hidden',
+                }}
+            />
         </div>
     );
 };
